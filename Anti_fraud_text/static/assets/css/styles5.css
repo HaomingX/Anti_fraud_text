@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .gauge-container {
+    text-align: center;
+  }
+  
+  .gauge-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
