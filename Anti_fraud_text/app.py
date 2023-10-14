@@ -28,10 +28,10 @@ class NpEncoder(json.JSONEncoder):
             return obj.tolist() # add this line
         return json.JSONEncoder.default(self, obj)   
 app = Flask(__name__)
-# openai.api_key = "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"
-openai.api_key = "sk-f2X2TELItRbY8qqGWEIAPUjirxea1CEIBuBDvjK5auwToAs0"
-openai.api_base = "https://api.f2gpt.com/v1"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:123456@localhost:3306/data'
+# openai.api_key = ""
+openai.api_key = ""
+openai.api_base = ""
+app.config['SQLALCHEMY_DATABASE_URI'] = ''
 db = SQLAlchemy(app) # db为对象名，自拟
 class Antiscam(db.Model):
 	# 定义表名
