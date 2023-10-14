@@ -1,0 +1,48 @@
+.textarea-container {
+    display: flex;
+    justify-content: center; /* 居中对齐子元素 */
+}
+
+textarea.custom-textarea{
+    background: linear-gradient(to bottom, #4b4d53, #6b6d74);
+    color: #FFFFFF; /* 白色文本 */
+    border: 2px solid #AAA;
+    border-radius: 8px; /* 设置圆角 */
+    padding: 10px;
+    font-size: 16px;
+    color: #000;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    width: calc(33.33% - 9px); /* 调整文本框宽度 */
+    height: 55px;
+    margin-right: 11px; 
+    overflow-y: hidden; /* 隐藏垂直滚动条 */
+    /* display: inline-block; */
+        /* animation: your-animation 5s infinite; 添加动画效果 */
+    /* background-image: url("/static/favicon.ico");
+    background-position: right center; /* 图标位置 */
+    /* background-repeat: no-repeat;
+    padding-right: 30px; */
+  }
+  
+  textarea.custom-textarea::placeholder {
+    color: #a7a7a7;
+  }
+  
+  textarea.custom-textarea:focus {
+    outline: none;
+    border-color: #AC92EC;
+    box-shadow: 0 0 5px rgba(172, 146, 236, 0.5);
+  }
+  
+  /* @keyframes your-animation {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  } */
+

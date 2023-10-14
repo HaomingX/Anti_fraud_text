@@ -1,0 +1,141 @@
+*{ margin:0px; padding:0px; box-sizing: border-box; -webkit-tap-highlight-color: rgba(255, 255, 255, 0);}
+*:focus{ outline:none;}
+ul,li{ list-style-type: none;}
+.overflow{overflow: hidden;height: 100%;}
+.dialog-modal-mask{ width:100%; height:100%; display: none; position: fixed; left:0; top:0; background:rgba(0,0,0,0.5); z-index:2222;}
+#dialog-mask-toast,#dialog-mask-loading{background:rgba(0,0,0,0);}
+.dialog-modal{/* 其他样式... */
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   /* 其他样式... */ position: fixed; z-index:3333;  width: 40%; left:0; right:0; margin:auto; top:50%; transform-origin: center; height:50%; width:30%; max-width:78%; max-height:80%; background:#fff; border-radius:5px; overflow: hidden;}
+.dialog-modal.dialog-modal-model{ width:400px;}
+   /* 更具体的样式定义 */
+.dialog-modal.dialog-modal-success,.dialog-modal.dialog-modal-error{  padding:20px 12px; width:140px; }
+.dialog-modal.dialog-modal-toast{ padding:8px 12px; max-height:40px;max-width: 150px; background:rgba(0,0,0,0.8); }
+.dialog-modal.dialog-modal-toast .dialog-modal-text{ padding:0; color:#fff; }
+.dialog-modal.dialog-modal-loading{  padding:20px 12px; width:100px; background:rgba(0,0,0,0.8); }
+.dialog-modal.dialog-modal-loading .dialog-modal-text{ padding:0; color:#fff; }
+.dialog-modal .dialog-modal-load{ display: flex; align-items: center; padding-top:10px; margin-bottom:15px; justify-content:center;}
+.dialog-modal .dialog-modal-load span{ width:6px;  animation: dialog-alert-load 1s ease infinite; transform: translateY(10px); animation-delay:0.1s; margin:0 5px; height:6px; opacity:0; border-radius:6px; background:#fff;}
+.dialog-modal .dialog-modal-load span:nth-child(2){ animation-delay:0.2s;}
+.dialog-modal .dialog-modal-load span:nth-child(3){ animation-delay:0.3s;}
+.dialog-modal .dialog-modal-title{ padding-top:18px; color:#333; font-weight:bold; font-size: 15px; text-align: center;}
+.dialog-modal .dialog-modal-text{ font-size:16px; text-align: center; color:#333; line-height:23px; padding:18px 20px; }
+.dialog-modal .dialog-modal-text.l{ text-align: left;}
+.dialog-modal .dialog-modal-text input{width: 100%;height: 28px;line-height: 28px;padding: 0 5px;border: 1px solid #F1F1F1;}
+.dialog-modal .dialog-modal-icon{ padding-bottom:12px;}
+.dialog-modal .dialog-modal-icon svg{ margin:0 auto; display: block;}
+.dialog-modal.dialog-modal-success .dialog-modal-text,.dialog-modal.dialog-modal-error .dialog-modal-text{ color:#14d6a2; padding:0; opacity:0; transform: translateY(10px); animation: dialog-alert-text 0.3s ease forwards; animation-delay:0.9s; }
+.dialog-modal.dialog-modal-error .dialog-modal-text{ color:#f54655}
+.dialog-modal .dialog-modal-content{ padding-top:0; overflow: hidden auto; max-height:80%; font-size:16px;}
+.dialog-modal .dialog-modal-btn{ display:flex; align-items: center; border-top:1px solid #F5F5F5; justify-content: center; margin-top:5px;}
+.dialog-modal .dialog-modal-btn button{ flex:1; color:#999; cursor: pointer; border:0; background:none; padding:14px;font-size:16px;border-right: 1px solid #F5F5F5;}
+.dialog-modal .dialog-modal-btn button:last-child{ color:#35d535;border-right: none;}
+.dialog-modal .dialog-modal-btn button.cancel{ }
+.dialog-modal .dialog-modal-btn button:active{ opacity:0.8;}
+
+.dialog-ani-open{ animation: dialog-open 0.2s ease forwards; }
+.dialog-ani-close{ animation: dialog-close 0.3s ease forwards; }
+
+@media (device-width:320px) and (-webkit-min-device-pixel-ratio:2){
+	.dialog-modal .dialog-modal-text,.dialog-modal .dialog-modal-content,.dialog-modal .dialog-modal-btn button{font-size: 14px;}
+	.dialog-modal .dialog-modal-title{padding-top: 15px;}
+	.dialog-modal .dialog-modal-text{padding: 15px 20px;}
+	.dialog-modal .dialog-modal-btn button{padding: 12px;}
+}
+
+@-webkit-keyframes dialog-open{  
+   0%{ transform: scale(0.7); opacity:0;  } 
+   100%{ transform: scale(1); opacity:1; }
+}
+
+@-webkit-keyframes dialog-close{  
+ 0%{ transform: scale(1); opacity:1;  } 
+ 30%{ transform: scale(1.05); opacity: 0.5; }
+ 100%{ transform: scale(0.7); opacity: 0;}
+}
+
+.dialog-alert-svgcircle{
+   stroke-dasharray:200;
+   stroke-dashoffset:200;
+   animation: dialog-alert-ruand 0.5s ease-in-out forwards
+}
+
+.dialog-alert-svggou {
+   stroke-dasharray:80;
+   stroke-dashoffset:80;
+   animation: dialog-alert-tick .6s ease-out forwards;
+   animation-delay: .75s;
+}
+
+.dialog-alert-svgca1 {
+ stroke-dasharray:80;
+ stroke-dashoffset:80;
+ animation: dialog-alert-tick .6s ease-out forwards;
+ animation-delay: .75s;
+}
+
+.dialog-alert-svgca2 {
+ stroke-dasharray:80;
+ stroke-dashoffset:80;
+ animation: dialog-alert-tick .6s ease-out forwards;
+ animation-delay: .85s;
+}
+
+@keyframes dialog-alert-ruand {
+ form{
+  stroke-dashoffset:200;
+ }
+ to{
+  stroke-dashoffset:400;
+ }
+}
+
+@keyframes dialog-alert-tick {
+from {
+stroke-dashoffset:80;
+}
+to {
+stroke-dashoffset: 0;
+}
+}
+
+@keyframes dialog-alert-text {
+	 from {
+		transform: translateY(10px);
+		opacity: 0;
+	 }
+	 to {
+		transform: translateY(0px);
+		opacity: 1;
+	 }
+ }
+ 
+ @keyframes dialog-alert-button {
+ 	 from {
+		opacity: 0;
+ 	 }
+ 	 to {
+ 		opacity: 1;
+ 	 }
+}
+
+ @keyframes dialog-alert-load {
+  0% {
+   transform: translateY(0px);
+   opacity: 0;
+  }
+  50% {
+   transform: translateY(-10px);
+   opacity: 1;
+  }
+  100%{
+   transform: translateY(0px);
+   opacity: 0;
+  }
+  }
+
+
+
+
